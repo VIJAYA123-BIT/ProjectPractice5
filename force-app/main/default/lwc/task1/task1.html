@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Input Form">
+        <div class ="slds-p-around_large">
+        <div class="slds-box slds-theme_shade">
+            <lightning-input onchange ={firstNameInput} type ="text" label ="First Name" value ={firstName}></lightning-input>
+            <lightning-input onchange ={lastNameInput} type ="text" label ="Last Name" value ={lastName} ></lightning-input>
+            <lightning-input onchange ={cityInput} type="text" label="City" value={city}></lightning-input>
+            <lightning-input onchange ={stateInput} type="text" label="State" value={state} ></lightning-input>
+            <lightning-input onchange ={countryInput} type="text" label="Country" value={country} ></lightning-input>
+            <lightning-input onchange ={pinCodeInput} type="text" label="Pincode" value={pinCode}></lightning-input>
+            <br>
+            <br>
+            <lightning-button variant="Brand" label="Show Details" title="Primary action" onclick={handleButtonClick}></lightning-button>
+            <template if:true={ist}>
+            <div>
+            <p>FirstName: {firstName}</p>
+            <p>LastName: {lastName}</p>
+            <p>City: {city}</p>
+            <p>State: {state}</p> 
+            <p>Country: {country}</p>
+            <p>Pincode: {pinCode}</p>
+            </div>
+
+            </template>
+        </div>
+    </div>
+
+    </lightning-card>
+</template>
+

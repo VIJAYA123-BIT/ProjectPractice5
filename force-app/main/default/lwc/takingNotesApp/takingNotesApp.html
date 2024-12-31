@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Note Taking App" icon-name="standard:note">
+        <div class ="slds-p-around_large">
+            <div class="slds-box slds-theme_shade">
+        <lightning-input type="text" label="Name of Note" value={name} onchange={nameHanlder}></lightning-input>
+        <lightning-textarea label="Enter a Note" value={note} onchange={noteHandler}></lightning-textarea>
+        <lightning-button label="Add" onclick={addHanlder}></lightning-button>
+        <lightning-button label="Fetch" variant="brand" onclick={fetchHandler}></lightning-button>
+        <lightning-button label="Asc" variant="neutral" onclick={handleSortAsc}></lightning-button>
+        <lightning-button label="Desc" variant="neutral" onclick={handleSortDesc}></lightning-button>
+        <div>
+            <template if:false={editEnabled}>
+                <template for:each={notesList} for:item="notes">
+                    <ol key={notes.id}>
+                        <div class="slds-var-m-around_medium">
+                             <div class="slds-grid slds-gutters">
+                                 <div class="slds-col slds-size_1-of-5">
+                                     {notes.Name}
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-5">
+                                        {notes.Content__c}
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-5">
+                                        {notes.CreatedDate__c}
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-5">
+                                         <lightning-button variant="destructive" data-id={notes.Id} label="Delete" onclick={deleteHandler}></lightning-button>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-5">
+                                        <lightning-button variant="brand" icon-name="utility:edit" data-id={notes.Id} onclick={editHandler}></lightning-button>
+                                     </div>
+                                    </div>
+                                </div>
+                            </ol>
+                        </template>
+                    </template>
+                 </div>
+                 <template if:true={editEnabled}>
+                     <div>
+                        <lightning-input type="text" onchange={nameChangeHanlder} value={newNameData}></lightning-input>
+                        <lightning-textarea onchange={newChangeHandler} value={newnoteData}></lightning-textarea>
+                        <lightning-button label="Update" onclick={updateHandler}></lightning-button>
+                    </div>
+                </template>
+                </div>
+                </div>
+            </lightning-card>
+        </template>

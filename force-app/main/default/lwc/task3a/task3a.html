@@ -1,0 +1,25 @@
+<template>
+    <lightning-card>
+    <lightning-button variant="brand" style="margin: 30px;" label="Fetch" onclick={handleFetch}></lightning-button>
+<template if:true={todosReceived}>
+    <ul>
+        <template for:each={todoList} for:item="todo" for:index="index">
+            <li key={todo.Id}> 
+                <div class="lgc-bg">
+                    <lightning-tile label={todo.Name} type="media">
+                        <lightning-input type="checkbox" value={todo.Task_Completed__c} checked={todo.Task_Completed__c} data-id={todo.Id} label="Task Completed" onchange={input}></lightning-input>
+                        <lightning-button brand="destructive" label="Delete" data-id={todo.Id} onclick={deleteTodo}></lightning-button>
+                    </lightning-tile>
+                </div>
+            </li>
+        </template>
+    </ul>
+</template>
+</lightning-card>
+
+</template>
+
+
+
+
+

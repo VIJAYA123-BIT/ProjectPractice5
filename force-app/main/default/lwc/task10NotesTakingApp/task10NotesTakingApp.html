@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title = "Notes">
+        <div class ="slds-p-around_large">
+            <div class="slds-box slds-theme_shade">
+             <lightning-input onchange ={inputHandler} type ="text" label ="Enter the taskk" value ={name}></lightning-input>
+             <br>
+             <!-- <lightning-input-rich-text value={content} onchange={handleChange} label="Enter the content" placeholder="Type something interesting"
+             ></lightning-input-rich-text> -->
+             <lightning-textarea onchange={contentHandler} type="text" label="content" value={content} ></lightning-textarea>
+             <br>
+             <button class="slds-button slds-button_brand" id ="input" onclick={handleButtonClick} >Add</button>
+             <button class="slds-button slds-button_brand" id ="input1" onclick={handleFetch} >Fetch Notes</button>
+             <template if:true={NotesReceived}>
+                <ul>
+                    <template for:each={taskList} for:item="task" for:index="index">
+                        <li key={task.Id}> 
+                            <div class="lgc-bg">
+                                <lightning-tile label={task.Name} type="media">
+                                    <!-- <lightning-input type="text" value={Notes.Content__c}  data-id={Notes.Id} label="content" onchange={input4}></lightning-input> -->
+                                    <!-- <lightning-button brand="destructive" label="Delete" data-id={Notes.Id} onclick={deleteTodo}></lightning-button> -->
+                                </lightning-tile>
+                            </div>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            </div>
+        </div>
+       
+ 
+    </lightning-card>
+    
+</template>

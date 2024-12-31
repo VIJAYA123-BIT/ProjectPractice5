@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title = "BMI Calculator">
+        <div class ="slds-p-around_large">
+            <div class="slds-box slds-theme_shade">
+            <lightning-input onchange ={inputname} type ="text" label ="Enter the name" value ={name}></lightning-input>
+             <lightning-input onchange ={inputheight} type ="number" label ="Height in cms" value ={Height}></lightning-input>
+             <lightning-input onchange ={inputweight} type ="number" label ="Weight in kgs" value ={Weight}></lightning-input>
+             <br>
+             <button class="slds-button slds-button_brand" id ="input" onclick={handleButtonClick} >show result</button>
+             <button class="slds-button slds-button_brand" id ="input1" onclick={fetchBmis} >show records</button>
+             
+             <template if:true={ist}>  
+                <div>   
+                    <p>The name  is : {name}</p>    
+                    <p>The height is : {Height}</p>
+                    <p>The weight is : {Weight}</p>   
+                </div>
+        </template>
+             
+            </div>
+        </div>
+    </lightning-card> 
+</template>

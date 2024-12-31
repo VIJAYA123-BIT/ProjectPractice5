@@ -1,0 +1,23 @@
+
+<template>
+    <lightning-card title="Location Coordinates">
+    <lightning-map
+    map-markers={mapMarkers}
+    zoom-level=12
+   >
+</lightning-map>
+<lightning-button variant="brand" style="margin: auto; padding:auto; " label="show location..." onclick={showDetails}></lightning-button>
+<template if:true={ist}>
+        <div if:true={locationError} class="slds-text-color_error">
+            Error retrieving location. Please check your browser settings.
+        </div>
+        <div if:false={locationError} >
+            Latitude: {lat}<br/>
+            Longitude: {long}
+        </div>
+ </template>
+</lightning-card>
+
+</template>
+
+ 
