@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title='output elements'>
+        <template for:each={array} for:item="inputs">
+            <li class="slds-var-m-around_small" key={inputs}>
+                <p>{inputs}</p>
+            </li>
+        </template>
+    </lightning-card>
+    
+</template>

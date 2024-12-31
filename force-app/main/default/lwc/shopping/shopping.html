@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="Shopping Card">
+        <div class="slds-var-m-around_medium">
+            <div class="slds-clearfix">
+                <button onclick={itemHandler} class="slds-button slds-button_brand">Items</button>
+                <div class="slds-float_right">
+                    <lightning-button label="Cart" icon-name="utility:cart" selected={isSelected} onclick={productHandler}></lightning-button>
+                </div>
+            </div>
+            <!-- <template if:true={productsReceived}>
+                <template for:each={productList} for:item="item">
+                    <div key={item.id}>
+                        <strong>Product:</strong> item.name
+                    </div>
+                </template>
+            </template> -->
+            <template if:true={itemReceived}>
+                <lightning-accordion>
+                    <lightning-accordion-section name="Electro" label="Electronics">
+                        <li class="slds-var-m-around_small">iPhone
+                            <button onclick={iPhoneHandler} class="slds-button slds-button_brand slds-var-m-around_small">Add to Cart</button>
+                        </li>
+                        <li class="slds-var-m-around_small">EarBuds
+                            <button onclick={earHandler} class="slds-button slds-button_brand slds-var-m-around_small">Add to Cart</button>
+                        </li>
+                    </lightning-accordion-section>
+                    <lightning-accordion-section name="Electri" label="Electrical">
+                        <li class="slds-var-m-around_small">AC
+                            <button onclick={acHandler} class="slds-button slds-button_brand slds-var-m-around_small">Add to Cart</button>
+                        </li>
+                        <li class="slds-var-m-around_small">Home Theatre
+                            <button onclick={homeHandler} class="slds-button slds-button_brand slds-var-m-around_small">Add to Cart</button>
+                        </li>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </template>
+        </div>
+          <div>
+        <ul class="cart-items"></ul>
+    </div>
+    </lightning-card>
+</template>
+
+
+
+
