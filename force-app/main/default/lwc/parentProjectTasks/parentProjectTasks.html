@@ -1,0 +1,16 @@
+<template>
+    <div class="flip-card-container">
+        <template for:each={records} for:item="record">
+            <c-project-tasks key={record.Id}>
+                <!-- Front content of the flip card -->
+                <div slot="front">
+                    <p>{record.Name}</p>
+                </div>
+                <!-- Back content of the flip card -->
+                <div slot="back">
+                    <p>{record.Description}</p>
+                </div>
+            </c-project-tasks>
+        </template>
+    </div>
+</template>
